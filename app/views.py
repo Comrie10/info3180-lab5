@@ -10,8 +10,8 @@ from flask import render_template, request, jsonify, send_file
 import os
 from app.forms import MovieForm
 from app.models import Movie
-from werkzeug.util import secure_filename
-
+from werkzeug.utils import secure_filename
+from flask_wtf.csrf import generate_csrf
 
 
 ###
@@ -75,6 +75,9 @@ def movies():
         }),201
     return form_errors(form)
 
+@app.route('/api/v1/csrf-token', methods=['GET'])
+def get_csrf():
+    return jsonify({'csrf_token': generate_csrf()})
 
 @app.after_request
 def add_header(response):
