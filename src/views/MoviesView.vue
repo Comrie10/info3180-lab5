@@ -20,7 +20,7 @@
         <div class="row">
             <div v-for="movie in movies" :key="movie.id">
                 <div class="card" style="max-width:25%">
-                    <img :src="`http://localhost:5001/api/v1/posters/${movie.poster}`" class="card-img" style="max-width:50%; max-height: 100%;" />
+                    <img :src="`http://localhost:8080/api/v1/posters/${movie.poster}`" class="card-img" style="max-width:50%; max-height: 100%;" />
                     <div class="body">
                         <h4 class="title">{{movie.title}}</h4>
                         <p class="description">{{movie.description}}</p>
